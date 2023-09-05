@@ -9,9 +9,9 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 public struct CardOne: View {
-    private var cardTitle:String = "Lorem ipsum dolor sit"
-    private var cardColorElement:Color = .cardRed
-    private var cardColorElementBG:Color {
+    public var cardTitle:String = "Lorem ipsum dolor sit"
+    public var cardColorElement:Color = .cardRed
+    public var cardColorElementBG:Color {
         get {
             switch cardColorElement {
             case .cardRed:
@@ -33,15 +33,15 @@ public struct CardOne: View {
             }
         }
     }
-    private var cardColorManaAmount:Int = 2
-    private var cardColorlessManaAmount:Int = 2
-    private var cardArt:String = ""
-    private var cardType:String = "Lorem"
-    private var cardSubType:String = "Ipsum"
-    private var cardExpansionSymbol:String = ""
-    private var cardTextBox:String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel facilisis urna. Nam sit amet vulputate eros. Quisque tempus, quam ut euismod maximus, massa magna placerat nulla, vel posuere arcu.- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel facilisis urna. Nam sit amet vulputate eros. Quisque tempus, quam ut euismod maximus, massa magna placerat nulla, vel posuere arcu."
-    private var cardPower:Int = 1
-    private var cardToughness:Int = 1
+    public var cardColorManaAmount:Int = 2
+    public var cardColorlessManaAmount:Int = 2
+    public var cardArt:String = ""
+    public var cardType:String = "Lorem"
+    public var cardSubType:String = "Ipsum"
+    public var cardExpansionSymbol:String = ""
+    public var cardTextBox:String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel facilisis urna. Nam sit amet vulputate eros. Quisque tempus, quam ut euismod maximus, massa magna placerat nulla, vel posuere arcu.- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel facilisis urna. Nam sit amet vulputate eros. Quisque tempus, quam ut euismod maximus, massa magna placerat nulla, vel posuere arcu."
+    public var cardPower:Int = 1
+    public var cardToughness:Int = 1
     public var body: some View {
         ZStack {
             Rectangle()
