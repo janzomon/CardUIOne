@@ -9,8 +9,8 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 public struct CardOne: View {
-    public var cardTitle:String = "Lorem ipsum dolor sit"
-    public var cardColorElement:Color = .cardRed
+    public var cardTitle:String
+    public var cardColorElement:Color
     public var cardColorElementBG:Color {
         get {
             switch cardColorElement {
@@ -33,15 +33,39 @@ public struct CardOne: View {
             }
         }
     }
-    public var cardColorManaAmount:Int = 2
-    public var cardColorlessManaAmount:Int = 2
-    public var cardArt:String = ""
-    public var cardType:String = "Lorem"
-    public var cardSubType:String = "Ipsum"
-    public var cardExpansionSymbol:String = ""
-    public var cardTextBox:String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel facilisis urna. Nam sit amet vulputate eros. Quisque tempus, quam ut euismod maximus, massa magna placerat nulla, vel posuere arcu.- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel facilisis urna. Nam sit amet vulputate eros. Quisque tempus, quam ut euismod maximus, massa magna placerat nulla, vel posuere arcu."
-    public var cardPower:Int = 1
-    public var cardToughness:Int = 1
+    public var cardColorManaAmount:Int
+    public var cardColorlessManaAmount:Int
+    public var cardArt:String
+    public var cardType:String
+    public var cardSubType:String
+    public var cardExpansionSymbol:String
+    public var cardTextBox:String
+    public var cardPower:Int
+    public var cardToughness:Int
+    public init(
+        cardTitle: String = "Lorem ipsum dolor sit",
+        cardColorElement: Color = .cardRed,
+        cardColorManaAmount: Int = 2,
+        cardColorlessManaAmount: Int = 2,
+        cardArt: String = "",
+        cardType: String = "Lorem",
+        cardSubType: String = "Ipsum",
+        cardExpansionSymbol: String = "",
+        cardTextBox: String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel facilisis urna. Nam sit amet vulputate eros. Quisque tempus, quam ut euismod maximus, massa magna placerat nulla, vel posuere arcu.- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel facilisis urna. Nam sit amet vulputate eros. Quisque tempus, quam ut euismod maximus, massa magna placerat nulla, vel posuere arcu.",
+        cardPower: Int = 1,
+        cardToughness: Int = 1) {
+        self.cardTitle = cardTitle
+        self.cardColorElement = cardColorElement
+        self.cardColorManaAmount = cardColorManaAmount
+        self.cardColorlessManaAmount = cardColorlessManaAmount
+        self.cardArt = cardArt
+        self.cardType = cardType
+        self.cardSubType = cardSubType
+        self.cardExpansionSymbol = cardExpansionSymbol
+        self.cardTextBox = cardTextBox
+        self.cardPower = cardPower
+        self.cardToughness = cardToughness
+    }
     public var body: some View {
         ZStack {
             Rectangle()
