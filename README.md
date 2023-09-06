@@ -1,8 +1,8 @@
 # CardUIOne
 
-Add MTG-esque cards to your project.
+Add 'Magic the Gathering'-like cards to your project.
 
-Create stunning MTG-esque cards inside your project for fun, fleshing out ideas, or even to just understand the anatomy of a Tradeable Card Game(TCG).
+Create stunning 'Magic the Gathering'-like cards inside your project for fun, fleshing out ideas, or even to just understand the anatomy of a Tradeable Card Game(TCG).
 
 ## Contents
 - [Add Package](https://github.com/janzomon/CardUIOne#package)
