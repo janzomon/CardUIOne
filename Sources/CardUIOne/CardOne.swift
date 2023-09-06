@@ -8,8 +8,8 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-@available(iOS 13.0, *)
 public struct CardOne: View {
+    @Environment(\.colorScheme) var colorScheme
     public var cardTitle:String
     public var cardColorElement:Color
     public var cardColorElementBG:Color {
@@ -55,7 +55,7 @@ public struct CardOne: View {
     public var website:String?
     public init(
         cardTitle: String = "Lorem ipsum dolor sit",
-        cardColorElement: Color = .cardBlue,
+        cardColorElement: Color = .cardRed,
         cardColorManaAmount: Int = 2,
         cardColorlessManaAmount: Int = 2,
         cardArt: String = "",
@@ -68,12 +68,12 @@ public struct CardOne: View {
         cardPower: Int = 1,
         cardToughness: Int = 1,
         cardHolo: Bool = false,
-        cardCollectionNumber: Int = 151,
+        cardCollectionNumber: Int = 074,
         cardCollectionNumberMax: Int = 151,
         cardArtist:String = "Damon Gonzalez",
         cardYear: Int = 2023,
-        cardCompanyName: String = "Dwarves of Mordor",
-        website: String = "dwarvesofmordor.com"){
+        cardCompanyName: String = "Dwarves of the Sea",
+        website: String = "dwarvesofthesea.com"){
             self.cardTitle = cardTitle
             self.cardColorElement = cardColorElement
             self.cardColorManaAmount = cardColorManaAmount
@@ -95,13 +95,28 @@ public struct CardOne: View {
             self.cardCompanyName = cardCompanyName
             self.website = website
         }
-    
     public var body: some View {
         ZStack {
-            Rectangle()
-                .frame(maxWidth: 420,maxHeight: 650)
-                .cornerRadius(15)
-                .shadow(color: cardColorElement, radius: 5.0)
+            switch colorScheme {
+            case .light:
+                Rectangle()
+                    .frame(maxWidth: 420,maxHeight: 650)
+                    .cornerRadius(15)
+                    .foregroundColor(.black)
+                    .shadow(color: cardColorElement, radius: 5.0)
+            case .dark:
+                Rectangle()
+                    .frame(maxWidth: 420,maxHeight: 650)
+                    .cornerRadius(15)
+                    .foregroundColor(.black)
+                    .shadow(color: cardColorElement, radius: 5.0)
+            @unknown default:
+                Rectangle()
+                    .frame(maxWidth: 420,maxHeight: 650)
+                    .cornerRadius(15)
+                    .foregroundColor(.black)
+                    .shadow(color: cardColorElement, radius: 5.0)
+            }
             Rectangle()
                 .frame(maxWidth: 380,maxHeight: 610)
                 .cornerRadius(15)
@@ -118,15 +133,32 @@ public struct CardOne: View {
                         .frame(maxWidth: 365,maxHeight: 30)
                         .cornerRadius(10)
                         .foregroundColor(.areaBg)
-                    Text(cardTitle)
-                    //.monospaced().bold()
-                        .aspectRatio(contentMode: .fit)
-                        .minimumScaleFactor(0.01)
-                        .lineLimit(1)
-                    //.border(Color.green)
-                        .frame(maxWidth: 200, alignment: .leading)
-                    //.border(Color.red)
-                        .offset(x:-75)
+                    switch colorScheme {
+                    case .light:
+                        Text(cardTitle)
+                            .aspectRatio(contentMode: .fit)
+                            .minimumScaleFactor(0.01)
+                            .lineLimit(1)
+                            .foregroundColor(.black)
+                            .frame(maxWidth: 200, alignment: .leading)
+                            .offset(x:-75)
+                    case .dark:
+                        Text(cardTitle)
+                            .aspectRatio(contentMode: .fit)
+                            .minimumScaleFactor(0.01)
+                            .lineLimit(1)
+                            .foregroundColor(.black)
+                            .frame(maxWidth: 200, alignment: .leading)
+                            .offset(x:-75)
+                    @unknown default:
+                        Text(cardTitle)
+                            .aspectRatio(contentMode: .fit)
+                            .minimumScaleFactor(0.01)
+                            .lineLimit(1)
+                            .foregroundColor(.black)
+                            .frame(maxWidth: 200, alignment: .leading)
+                            .offset(x:-75)
+                    }
                     //CARD MANA
                     switch cardColorManaAmount + cardColorlessManaAmount {
                     case 1:
@@ -498,14 +530,29 @@ public struct CardOne: View {
                         .frame(maxWidth: 365,maxHeight: 30)
                         .cornerRadius(10)
                         .foregroundColor(.areaBg)
-                    Text(cardType + " - " + cardSubType)
-                    //.monospaced().bold()
-                        .minimumScaleFactor(0.01)
-                        .lineLimit(1)
-                    //.border(Color.green)
-                        .frame(maxWidth: 200, alignment: .leading)
-                    //.border(Color.red)
-                        .offset(x:-75)
+                    switch colorScheme {
+                    case .light:
+                        Text(cardType + " - " + cardSubType)
+                            .minimumScaleFactor(0.01)
+                            .lineLimit(1)
+                            .foregroundColor(.black)
+                            .frame(maxWidth: 200, alignment: .leading)
+                            .offset(x:-75)
+                    case .dark:
+                        Text(cardType + " - " + cardSubType)
+                            .minimumScaleFactor(0.01)
+                            .lineLimit(1)
+                            .foregroundColor(.black)
+                            .frame(maxWidth: 200, alignment: .leading)
+                            .offset(x:-75)
+                    @unknown default:
+                        Text(cardType + " - " + cardSubType)
+                            .minimumScaleFactor(0.01)
+                            .lineLimit(1)
+                            .foregroundColor(.black)
+                            .frame(maxWidth: 200, alignment: .leading)
+                            .offset(x:-75)
+                    }
                     switch cardRarity {
                     case .common:
                         Image(cardExpansionSymbol)
@@ -561,18 +608,49 @@ public struct CardOne: View {
                         .frame(maxWidth: 350,maxHeight: 200)
                         .cornerRadius(15)
                         .foregroundColor(.areaBg)
-                    Text(cardTextBox)
-                    //.monospaced().bold()
-                        .minimumScaleFactor(0.01)
-                        .lineLimit(10)
-                        .frame(maxWidth: 340,maxHeight: 160, alignment: .center)
-                        .offset(y:-15)
-                    Text(cardFlavorText ?? "")
-                        .font(.custom("BodoniSvtyTwoITCTT-BookIta", size: 20))
-                        .minimumScaleFactor(0.01)
-                        .lineLimit(2)
-                        .frame(maxWidth: 330,maxHeight: 20, alignment: .leading)
-                        .offset(y:75)
+                    switch colorScheme {
+                    case .dark:
+                        Text(cardTextBox)
+                            .minimumScaleFactor(0.01)
+                            .lineLimit(10)
+                            .foregroundColor(.black)
+                            .frame(maxWidth: 340,maxHeight: 160, alignment: .center)
+                            .offset(y:-15)
+                        Text(cardFlavorText ?? "")
+                            .font(.custom("BodoniSvtyTwoITCTT-BookIta", size: 20))
+                            .foregroundColor(.black)
+                            .minimumScaleFactor(0.01)
+                            .lineLimit(2)
+                            .frame(maxWidth: 330,maxHeight: 20, alignment: .leading)
+                            .offset(y:75)
+                    case .light:
+                        Text(cardTextBox)
+                            .minimumScaleFactor(0.01)
+                            .lineLimit(10)
+                            .frame(maxWidth: 340,maxHeight: 160, alignment: .center)
+                            .offset(y:-15)
+                        Text(cardFlavorText ?? "")
+                            .font(.custom("BodoniSvtyTwoITCTT-BookIta", size: 20))
+                            .foregroundColor(.black)
+                            .minimumScaleFactor(0.01)
+                            .lineLimit(2)
+                            .frame(maxWidth: 330,maxHeight: 20, alignment: .leading)
+                            .offset(y:75)
+                    @unknown default:
+                        Text(cardTextBox)
+                            .minimumScaleFactor(0.01)
+                            .lineLimit(10)
+                            .foregroundColor(.black)
+                            .frame(maxWidth: 340,maxHeight: 160, alignment: .center)
+                            .offset(y:-15)
+                        Text(cardFlavorText ?? "")
+                            .font(.custom("BodoniSvtyTwoITCTT-BookIta", size: 20))
+                            .foregroundColor(.black)
+                            .minimumScaleFactor(0.01)
+                            .lineLimit(2)
+                            .frame(maxWidth: 330,maxHeight: 20, alignment: .leading)
+                            .offset(y:75)
+                    }
                 }
                 
             }
@@ -637,6 +715,7 @@ public enum Rarity {
     case rare
     case mythicRare
 }
+
 
 @available(iOS 13.0, *)
 public extension Color {
