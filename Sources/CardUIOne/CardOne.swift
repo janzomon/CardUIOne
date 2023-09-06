@@ -101,6 +101,7 @@ public struct CardOne: View {
             Rectangle()
                 .frame(maxWidth: 420,maxHeight: 650)
                 .cornerRadius(15)
+                .shadow(color: cardColorElement, radius: 5.0)
             Rectangle()
                 .frame(maxWidth: 380,maxHeight: 610)
                 .cornerRadius(15)
@@ -669,6 +670,6 @@ public extension Color {
 @available(iOS 13.0, *)
 struct CardOne_Previews: PreviewProvider {
     static var previews: some View {
-        CardOne()
+        CardOne().colorScheme(.light)
     }
 }
