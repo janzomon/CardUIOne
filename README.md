@@ -8,6 +8,7 @@ Create stunning MTG-esque cards inside your project for fun, fleshing out ideas,
 - [Add Package](https://github.com/janzomon/CardUIOne#package)
 - [Basic Usage](https://github.com/janzomon/CardUIOne#basic-usage)
 - [Properties](https://github.com/janzomon/CardUIOne#properties)
+- [Images](https://github.com/janzomon/CardUIOne#images)
 - [Future](https://github.com/janzomon/CardUIOne#future)
 - [Feedback](https://github.com/janzomon/CardUIOne#feedback)
 
@@ -26,6 +27,8 @@ File > Swift Packages > Add Package Dependency: [https://github.com/janzomon/Car
 
 ## Properties
 
+1. `@Environment(\.colorScheme) var colorScheme`
+   - `@Environment` to control the color of card when in dark or light mode
 1. `public var cardTitle:String`
     - `String` for Name of Card
 3. `public var cardColorElement:Color`
@@ -80,7 +83,23 @@ File > Swift Packages > Add Package Dependency: [https://github.com/janzomon/Car
     - `String` to present company that created card
 23. `public var website:String?`
     - `String` to present website of company that created card
-    - This property is `optional`
+    - This property is
+    -
+
+## Images
+
+<img src="https://github.com/janzomon/CardUIOne/assets/29006410/2b4f5889-29dc-42b3-bc25-2fa4864d16da" width="100" height="230">   
+
+<img src="https://github.com/janzomon/CardUIOne/assets/29006410/b014ee3e-eb3c-42de-a091-98e30e2c9aea" width="100" height="230">  
+
+<img src="https://github.com/janzomon/CardUIOne/assets/29006410/70cdd2be-d448-4d15-a276-cd30e3e7fba3" width="100" height="230">   
+
+<img src="https://github.com/janzomon/CardUIOne/assets/29006410/00cf97fa-faa4-424f-97cf-a5a89d78d54a" width="100" height="230"> 
+
+<img src="https://github.com/janzomon/CardUIOne/assets/29006410/20ca243b-8e9a-41aa-bf55-ed6e09ad42ee" width="100" height="230">   
+
+<img src="https://github.com/janzomon/CardUIOne/assets/29006410/4984ff58-d8ea-43b1-ac25-322189f6e182" width="100" height="230">
+
 
  ## Future
 
