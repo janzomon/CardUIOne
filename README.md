@@ -71,6 +71,8 @@ File > Swift Packages > Add Package Dependency: [https://github.com/janzomon/Car
     - `true` or `false` selection if card image should be Holographic
 17. `@State private var animateGradient:Bool = false`
     - An `@State` to animate Holographic image when `public var cardHolo:Bool` is set to `true`
+18. `@State private var animateHoloFoilStamp:Bool`
+    - An `@State` to animate Holofoil stamp at bottom of card
 18. `public var cardCollectionNumber:Int`
     - `Int` representing the number of card in set
 19. `public var cardCollectionNumberMax:Int`
@@ -88,17 +90,18 @@ File > Swift Packages > Add Package Dependency: [https://github.com/janzomon/Car
 
 ## Images
 
-<img src="https://github.com/janzomon/CardUIOne/assets/29006410/2b4f5889-29dc-42b3-bc25-2fa4864d16da" width="100" height="230">   
 
-<img src="https://github.com/janzomon/CardUIOne/assets/29006410/b014ee3e-eb3c-42de-a091-98e30e2c9aea" width="100" height="230">  
+<img src="https://github.com/janzomon/CardUIOne/assets/29006410/b7fff4dd-e1f9-421c-9154-1acbb103743e" width="100" height="150">   
 
-<img src="https://github.com/janzomon/CardUIOne/assets/29006410/70cdd2be-d448-4d15-a276-cd30e3e7fba3" width="100" height="230">   
+<img src="https://github.com/janzomon/CardUIOne/assets/29006410/e349aacc-1a40-4434-a644-255c8bd8d6ce" width="100" height="150">  
 
-<img src="https://github.com/janzomon/CardUIOne/assets/29006410/00cf97fa-faa4-424f-97cf-a5a89d78d54a" width="100" height="230"> 
+<img src="https://github.com/janzomon/CardUIOne/assets/29006410/c31f9c88-9253-47de-921b-873684e056ac" width="100" height="150">   
 
-<img src="https://github.com/janzomon/CardUIOne/assets/29006410/20ca243b-8e9a-41aa-bf55-ed6e09ad42ee" width="100" height="230">   
+<img src="https://github.com/janzomon/CardUIOne/assets/29006410/316735eb-7432-4e27-92e4-235d0b82c860" width="100" height="150"> 
 
-<img src="https://github.com/janzomon/CardUIOne/assets/29006410/4984ff58-d8ea-43b1-ac25-322189f6e182" width="100" height="230">
+<img src="https://github.com/janzomon/CardUIOne/assets/29006410/da2cc596-85cd-4312-9fe7-6efdf47612ae" width="100" height="150">   
+
+<img src="https://github.com/janzomon/CardUIOne/assets/29006410/544e6261-f228-4e0c-9f6c-c8339ad70e82" width="100" height="150">
 
 
  ## Future
