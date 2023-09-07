@@ -47,6 +47,7 @@ public struct CardOne: View {
     public var cardToughness:Int
     public var cardHolo:Bool
     @State private var animateGradient:Bool = false
+    @State private var animateHoloFoilStamp:Bool = false
     public var cardCollectionNumber:Int
     public var cardCollectionNumberMax:Int
     public var cardArtist:String
@@ -58,10 +59,10 @@ public struct CardOne: View {
         cardColorElement: Color = .cardRed,
         cardColorManaAmount: Int = 2,
         cardColorlessManaAmount: Int = 2,
-        cardArt: String = "",
+        cardArt: String = "meteor",
         cardType: String = "Lorem",
         cardSubType: String = "Ipsum",
-        cardExpansionSymbol: String = "",
+        cardExpansionSymbol: String = "zendikar",
         cardRarity: Rarity = .uncommon,
         cardTextBox: String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel facilisis urna. Nam sit amet vulputate eros. Quisque tempus, quam ut euismod maximus, massa magna placerat nulla, vel posuere arcu.- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel facilisis urna. Nam sit amet vulputate eros. Quisque tempus, quam ut euismod maximus, massa magna placerat nulla, vel posuere arcu.",
         cardFlavorText: String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quam ut euismod maximus. - Quisque",
@@ -94,7 +95,9 @@ public struct CardOne: View {
             self.cardYear = cardYear
             self.cardCompanyName = cardCompanyName
             self.website = website
+            BelerenFont.registerFonts()
         }
+    
     public var body: some View {
         ZStack {
             switch colorScheme {
@@ -139,6 +142,7 @@ public struct CardOne: View {
                             .aspectRatio(contentMode: .fit)
                             .minimumScaleFactor(0.01)
                             .lineLimit(1)
+                            .font(.custom("Beleren2016-Bold", size: 25))
                             .foregroundColor(.black)
                             .frame(maxWidth: 200, alignment: .leading)
                             .offset(x:-75)
@@ -147,6 +151,7 @@ public struct CardOne: View {
                             .aspectRatio(contentMode: .fit)
                             .minimumScaleFactor(0.01)
                             .lineLimit(1)
+                            .font(.custom("Beleren2016-Bold", size: 25))
                             .foregroundColor(.black)
                             .frame(maxWidth: 200, alignment: .leading)
                             .offset(x:-75)
@@ -155,6 +160,7 @@ public struct CardOne: View {
                             .aspectRatio(contentMode: .fit)
                             .minimumScaleFactor(0.01)
                             .lineLimit(1)
+                            .font(.custom("Beleren2016-Bold", size: 25))
                             .foregroundColor(.black)
                             .frame(maxWidth: 200, alignment: .leading)
                             .offset(x:-75)
@@ -499,16 +505,16 @@ public struct CardOne: View {
                                 .frame(maxWidth: 350,maxHeight: 285)
                                 .clipShape(Rectangle())
                             LinearGradient(colors: [.holographic1,.holographic2,.holographic3,.holographic4,.holographic5], startPoint: .topLeading, endPoint: .bottomTrailing)
-                                .hueRotation(.degrees(animateGradient ? 45 : 0))
+                                .hueRotation(.degrees(animateGradient ? 360 : 0))
                                 .cornerRadius(15)
                                 .frame(maxWidth: 350,maxHeight: 285)
                                 .clipShape(Rectangle())
                                 .onAppear {
-                                    withAnimation(.linear(duration: 0.8).repeatForever(autoreverses: true)) {
+                                    withAnimation(.easeInOut(duration: 2.0).repeatForever(autoreverses: true)) {
                                         animateGradient.toggle()
                                     }
                                 }
-                                .opacity(0.5)
+                                .opacity(0.3)
                         }
                     case false:
                         Image(cardArt)
@@ -535,6 +541,7 @@ public struct CardOne: View {
                         Text(cardType + " - " + cardSubType)
                             .minimumScaleFactor(0.01)
                             .lineLimit(1)
+                            .font(.custom("Beleren2016-Bold", size: 20))
                             .foregroundColor(.black)
                             .frame(maxWidth: 200, alignment: .leading)
                             .offset(x:-75)
@@ -542,6 +549,7 @@ public struct CardOne: View {
                         Text(cardType + " - " + cardSubType)
                             .minimumScaleFactor(0.01)
                             .lineLimit(1)
+                            .font(.custom("Beleren2016-Bold", size: 20))
                             .foregroundColor(.black)
                             .frame(maxWidth: 200, alignment: .leading)
                             .offset(x:-75)
@@ -549,6 +557,7 @@ public struct CardOne: View {
                         Text(cardType + " - " + cardSubType)
                             .minimumScaleFactor(0.01)
                             .lineLimit(1)
+                            .font(.custom("Beleren2016-Bold", size: 20))
                             .foregroundColor(.black)
                             .frame(maxWidth: 200, alignment: .leading)
                             .offset(x:-75)
@@ -613,11 +622,12 @@ public struct CardOne: View {
                         Text(cardTextBox)
                             .minimumScaleFactor(0.01)
                             .lineLimit(10)
+                            .font(.custom("Beleren2016-Bold", size: 25))
                             .foregroundColor(.black)
                             .frame(maxWidth: 340,maxHeight: 160, alignment: .center)
                             .offset(y:-15)
                         Text(cardFlavorText ?? "")
-                            .font(.custom("BodoniSvtyTwoITCTT-BookIta", size: 20))
+                            .font(.custom("Beleren2016SmallCaps-BoldItalic", size: 10))
                             .foregroundColor(.black)
                             .minimumScaleFactor(0.01)
                             .lineLimit(2)
@@ -627,24 +637,26 @@ public struct CardOne: View {
                         Text(cardTextBox)
                             .minimumScaleFactor(0.01)
                             .lineLimit(10)
+                            .font(.custom("Beleren2016-Bold", size: 25))
                             .frame(maxWidth: 340,maxHeight: 160, alignment: .center)
                             .offset(y:-15)
                         Text(cardFlavorText ?? "")
-                            .font(.custom("BodoniSvtyTwoITCTT-BookIta", size: 20))
+                            .font(.custom("Beleren2016SmallCaps-BoldItalic", size: 10))
                             .foregroundColor(.black)
                             .minimumScaleFactor(0.01)
                             .lineLimit(2)
                             .frame(maxWidth: 330,maxHeight: 20, alignment: .leading)
-                            .offset(y:75)
+                            .offset(y:80)
                     @unknown default:
                         Text(cardTextBox)
                             .minimumScaleFactor(0.01)
                             .lineLimit(10)
+                            .font(.custom("Beleren2016-Bold", size: 25))
                             .foregroundColor(.black)
                             .frame(maxWidth: 340,maxHeight: 160, alignment: .center)
                             .offset(y:-15)
                         Text(cardFlavorText ?? "")
-                            .font(.custom("BodoniSvtyTwoITCTT-BookIta", size: 20))
+                            .font(.custom("Beleren2016SmallCaps-BoldItalic", size: 10))
                             .foregroundColor(.black)
                             .minimumScaleFactor(0.01)
                             .lineLimit(2)
@@ -666,7 +678,7 @@ public struct CardOne: View {
                     .cornerRadius(5)
                     .foregroundColor(.areaBg)
                 Text("\(cardPower)" + "/" + "\(cardToughness)")
-                //.font(.system(size: 15).monospaced().bold())
+                    .font(.custom("Beleren2016-Bold", size: 20))
                     .lineLimit(1)
                     .foregroundColor(.black)
             }
@@ -676,31 +688,49 @@ public struct CardOne: View {
                 Text("\(cardCollectionNumber)" + "/" + "\(cardCollectionNumberMax)")
                     .minimumScaleFactor(0.01)
                     .foregroundColor(.white)
-                    .font(.system(size: 5))
+                    .font(.custom("Beleren2016-Bold", size: 5))
                     .lineLimit(1)
                 Text("Artist: " + cardArtist)
                     .minimumScaleFactor(0.01)
                     .foregroundColor(.white)
-                    .font(.system(size: 5))
+                    .font(.custom("Beleren2016-Bold", size: 5))
                     .lineLimit(1)
             }
             .frame(maxWidth: 140,alignment: .leading)
             .offset(x:-110,y:315)
             //TRADMARK/COPYRIGHT - WEBSITE
             VStack(alignment:.trailing) {
-                Text("™ & © " + "\(cardYear)" + cardCompanyName)
+                Text("™ & © " + "\(cardYear) " + cardCompanyName)
                     .minimumScaleFactor(0.01)
                     .foregroundColor(.white)
-                    .font(.system(size: 5))
+                    .font(.custom("Beleren2016-Bold", size: 5))
                     .lineLimit(1)
                 Text(website ?? "")
                     .minimumScaleFactor(0.01)
                     .foregroundColor(.white)
-                    .font(.system(size: 5))
+                    .font(.custom("Beleren2016-Bold", size: 5))
                     .lineLimit(1)
             }
             .frame(maxWidth: 140,alignment: .trailing)
             .offset(x:60,y:315)
+            //HOLOSTAMP
+            ZStack {
+                Image(uiImage: UIImage(named:"holostampBGImage",in:.module,with:nil)!)
+                    .resizable()
+                    .frame(maxWidth: 25,maxHeight: 16)
+                    .clipShape(Ellipse())
+                LinearGradient(colors: [.holographic6,.holographic7,.holographic8], startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .hueRotation(.degrees(animateHoloFoilStamp ? 360 : 0))
+                    .frame(maxWidth: 25,maxHeight: 16)
+                    .clipShape(Ellipse())
+                    .onAppear {
+                        withAnimation(.easeInOut(duration: 3.0).repeatForever(autoreverses: true)) {
+                            animateHoloFoilStamp.toggle()
+                        }
+                    }
+                    .opacity(0.6)
+            }
+            .offset(y:315)
         }
     }
 }
@@ -715,7 +745,6 @@ public enum Rarity {
     case rare
     case mythicRare
 }
-
 
 @available(iOS 13.0, *)
 public extension Color {
@@ -744,6 +773,9 @@ public extension Color {
     static let uncommon = Color(red: 117.0 / 255, green: 117.0 / 255, blue: 117.0 / 255)
     static let rare = Color(red: 170.0 / 255, green: 150.0 / 255, blue: 75.0 / 255)
     static let mythicRare = Color(red: 229.0 / 255, green: 87.0 / 255, blue: 8.0 / 255)
+    static let holographic6 = Color(red: 199.0 / 255, green: 201.0 / 255, blue: 209.0 / 255)
+    static let holographic7 = Color(red: 200.0 / 255, green: 243.0 / 255, blue: 247.0 / 255)
+    static let holographic8 = Color(red: 252.0 / 255, green: 220.0 / 255, blue: 220.0 / 255)
 }
 
 @available(iOS 13.0, *)
