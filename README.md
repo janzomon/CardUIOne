@@ -104,6 +104,18 @@ File > Swift Packages > Add Package Dependency: [https://github.com/janzomon/Car
 <img src="https://github.com/janzomon/CardUIOne/assets/29006410/544e6261-f228-4e0c-9f6c-c8339ad70e82" width="100" height="150">
 
 
+
+https://github.com/janzomon/CardUIOne/assets/29006410/53e7dbe3-6c86-4a33-b442-d43c780a12ea
+
+
+https://github.com/janzomon/CardUIOne/assets/29006410/0a2dbe06-4781-4613-97e6-e3a38f9ac804
+
+
+
+
+
+
+
  ## Future
 
  1. Card Flipping Animation
